@@ -1,13 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Déclenche l'action à chaque "push" (envoi de code) sur la branche principale
   push:
     branches: ["main"]
-  # Permet aussi de lancer le déploiement manuellement depuis l'onglet "Actions"
   workflow_dispatch:
 
-# Autorisations nécessaires pour que le bot GitHub puisse publier ton site
 permissions:
   contents: read
   pages: write
@@ -19,22 +16,24 @@ concurrency:
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-      
-      - name: Setup Pages
+
+      - name: Setup GitHub Pages
         uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Dossier racine contenant ton index.htmlt  
-      
+          path: .
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
