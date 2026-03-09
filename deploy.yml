@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Dossier racine contenant ton index.html
+          path: '.' # Dossier racine contenant ton index.htmlt  
       
       - name: Deploy to GitHub Pages
         id: deployment
