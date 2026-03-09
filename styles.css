@@ -36,7 +36,7 @@ h1 {
 input {
     margin-top: 1.5rem;
     padding: 0.8rem 1.5rem;
-    width: 80%;
+    width: 90%; /* Ajusté pour mobile */
     max-width: 400px;
     border: 2px solid #ffb3d9;
     border-radius: 25px;
@@ -51,13 +51,39 @@ input:focus {
     box-shadow: 0 0 10px rgba(255, 77, 148, 0.3);
 }
 
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+h2 {
+    color: #ff3385;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+}
+
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* CHANGEMENT ICI : minmax(250px) au lieu de 300px pour éviter les bugs sur mobile */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     width: 90%;
     max-width: 1200px;
-    margin-bottom: 3rem;
 }
 
 .card {
@@ -68,6 +94,7 @@ input:focus {
     position: relative;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     border: 2px solid #ffe6f2;
+    text-align: left;
 }
 
 .card:hover {
@@ -117,4 +144,24 @@ footer {
     width: 100%;
     color: #ff66a3;
     font-weight: bold;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .grid {
+        grid-template-columns: 1fr; /* Sur très petit écran, 1 seule colonne */
+        gap: 2rem; /* Plus d'espace car l'icône chat dépasse un peu */
+    }
+    .card {
+        padding: 1.2rem;
+    }
 }
