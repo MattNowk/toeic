@@ -164,7 +164,7 @@ h2 {
     max-width: 600px;
     width: 90%;
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem auto;
     position: relative;
     border: 3px solid #ffe6f2;
 }
@@ -182,48 +182,56 @@ h2 {
     margin-bottom: 2rem;
 }
 
+/* Grille des boutons */
 .options-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
     margin: 2rem 0;
+    width: 100%;
 }
 
+/* Style des boutons 3D */
 .option-btn {
-    background: #ffffff;
-    border: 2px solid #ffb3d9;
+    background: linear-gradient(135deg, #ffffff, #fff0f5);
+    border: 3px solid #ffb3d9;
     color: #ff3385;
     font-family: 'Nunito', sans-serif;
     font-size: 1.1rem;
     font-weight: 800;
-    padding: 1.2rem;
+    padding: 1rem;
     border-radius: 20px;
     cursor: pointer;
     position: relative;
-    box-shadow: 0 6px 0px #ffb3d9;
-    transition: all 0.1s ease-in-out;
+    box-shadow: 0 6px 0px #ff99cc, 0 10px 15px rgba(255, 105, 180, 0.15);
+    transition: all 0.15s ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 80px;
+    text-align: center;
 }
 
+/* Au survol */
 .option-btn:hover:not(:disabled) {
     background: #fff0f5;
     transform: translateY(-2px);
-    box-shadow: 0 8px 0px #ffb3d9;
+    border-color: #ff66a3;
+    box-shadow: 0 8px 0px #ff99cc, 0 12px 20px rgba(255, 105, 180, 0.25);
 }
 
+/* Au clic (enfoncement du bouton) */
 .option-btn:active:not(:disabled) {
-    transform: translateY(4px);
-    box-shadow: 0 2px 0px #ffb3d9;
+    transform: translateY(6px);
+    box-shadow: 0 0px 0px #ff99cc, 0 2px 5px rgba(255, 105, 180, 0.1);
 }
 
 .option-btn:disabled {
     cursor: default;
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
+/* --- LE RESTE DU STYLE QUIZ --- */
 .score-board {
     margin-top: 2.5rem;
     font-weight: bold;
