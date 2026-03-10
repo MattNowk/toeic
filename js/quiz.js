@@ -255,27 +255,47 @@ function startNewQuestion() {
 }
 
 // Fonction pour vérifier la réponse
-function checkAnswer(selectedDef) {
-    const catIcon = document.getElementById('quiz-cat');
+function checkAnswer(selectedDef, clickedButton) {
     const buttons = document.querySelectorAll('.option-btn');
+    
+    // Désactiver tous les boutons pour éviter le spam
     buttons.forEach(btn => btn.disabled = true);
 
     if (selectedDef === currentCorrectWord.def) {
+        // --- BONNE RÉPONSE ---
+        clickedButton.style.background = "#4CAF50"; // Vert
+        clickedButton.style.color = "white";
+        clickedButton.style.borderColor = "#388E3C";
+        clickedButton.style.boxShadow = "0 4px 0px #2E7D32";
+        
         score++;
-        scoreEl.textContent = `${score} 🐾`;
-        catIcon.textContent = "😻"; // Chat content
-        feedbackEl.style.color = "#4CAF50";
-        feedbackEl.textContent = "Excellent ! +1 croquette !";
+        document.getElementById('score').textContent = `${score} 🐾`;
+        document.getElementById('quiz-cat').textContent = "😻";
+        
         setTimeout(() => {
-            catIcon.textContent = "🎮";
+            document.getElementById('quiz-cat').textContent = "🎮";
             startNewQuestion();
         }, 1000);
+        
     } else {
-        catIcon.textContent = "😿"; // Chat triste
-        feedbackEl.style.color = "#ff4d94";
-        feedbackEl.textContent = `Oups ! C'était : ${currentCorrectWord.def}`;
+        // --- MAUVAISE RÉPONSE ---
+        clickedButton.style.background = "#ff4d94"; // Rouge/Rose flash
+        clickedButton.style.color = "white";
+        clickedButton.style.borderColor = "#d81b60";
+        clickedButton.style.boxShadow = "0 4px 0px #ad1457";
+        
+        document.getElementById('quiz-cat').textContent = "😿";
+        
+        // On montre aussi la bonne réponse en vert discrètement
+        buttons.forEach(btn => {
+            if (btn.textContent === currentCorrectWord.def) {
+                btn.style.color = "#4CAF50";
+                btn.style.borderColor = "#4CAF50";
+            }
+        });
+
         setTimeout(() => {
-            catIcon.textContent = "🎮";
+            document.getElementById('quiz-cat').textContent = "🎮";
             startNewQuestion();
         }, 2000);
     }
