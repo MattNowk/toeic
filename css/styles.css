@@ -165,3 +165,19 @@ footer {
         padding: 1.2rem;
     }
 }
+
+.quiz-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #ff4d94;
+    color: white;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+.quiz-link:hover {
+    transform: scale(1.1);
+    background: #ff1a75;
+}
