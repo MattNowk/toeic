@@ -244,12 +244,13 @@ function startNewQuestion() {
     options.sort(() => Math.random() - 0.5);
 
     // 4. Créer et afficher les boutons
+// 4. Créer et afficher les boutons
     options.forEach(option => {
         const btn = document.createElement('button');
         btn.className = 'option-btn';
         btn.textContent = option;
-        // Ajouter l'événement de clic
-        btn.onclick = () => checkAnswer(option);
+        // Ajouter l'événement de clic en passant le bouton en paramètre
+        btn.onclick = () => checkAnswer(option, btn); 
         optionsContainer.appendChild(btn);
     });
 }
