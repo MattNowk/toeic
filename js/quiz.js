@@ -256,24 +256,28 @@ function startNewQuestion() {
 
 // Fonction pour vérifier la réponse
 function checkAnswer(selectedDef) {
-    // Bloquer les clics supplémentaires pendant le feedback
+    const catIcon = document.getElementById('quiz-cat');
     const buttons = document.querySelectorAll('.option-btn');
     buttons.forEach(btn => btn.disabled = true);
 
     if (selectedDef === currentCorrectWord.def) {
-        // Bonne réponse
         score++;
-        scoreEl.textContent = score;
-        feedbackEl.style.color = "#4CAF50"; // Vert chat
-        feedbackEl.textContent = "Miaou ! Bonne réponse ! ✨ 🐾";
-        // Passer à la question suivante après 1s
-        setTimeout(startNewQuestion, 1000);
+        scoreEl.textContent = `${score} 🐾`;
+        catIcon.textContent = "😻"; // Chat content
+        feedbackEl.style.color = "#4CAF50";
+        feedbackEl.textContent = "Excellent ! +1 croquette !";
+        setTimeout(() => {
+            catIcon.textContent = "🎮";
+            startNewQuestion();
+        }, 1000);
     } else {
-        // Mauvaise réponse
-        feedbackEl.style.color = "#ff4d94"; // Rose
-        feedbackEl.textContent = `Oups ! La réponse était : ${currentCorrectWord.def}`;
-        // Passer à la question suivante après 2.5s
-        setTimeout(startNewQuestion, 2500);
+        catIcon.textContent = "😿"; // Chat triste
+        feedbackEl.style.color = "#ff4d94";
+        feedbackEl.textContent = `Oups ! C'était : ${currentCorrectWord.def}`;
+        setTimeout(() => {
+            catIcon.textContent = "🎮";
+            startNewQuestion();
+        }, 2000);
     }
 }
 

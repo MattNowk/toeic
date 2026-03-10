@@ -259,3 +259,54 @@ footer {
         grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
     }
 }
+
+/* Ajoute ça à la fin de styles.css */
+
+.quiz-container {
+    padding: 3rem 2rem !important; /* On force un peu d'espace interne */
+    text-align: center;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes sur PC */
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.option-btn {
+    background: #fff0f5;
+    border: 2px solid #ffb3d9;
+    padding: 1rem;
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ff3385;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background: #ff4d94;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 77, 148, 0.3);
+}
+
+.score-board {
+    border-top: 2px dashed #ffb3d9;
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* RESPONSIVE : 1 seule colonne de boutons sur mobile */
+@media (max-width: 500px) {
+    .options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .question-word {
+        font-size: 2rem;
+    }
+}
