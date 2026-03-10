@@ -1,3 +1,4 @@
+/* --- STYLE GLOBAL (DÉJÀ EXISTANT) --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,7 +37,7 @@ h1 {
 input {
     margin-top: 1.5rem;
     padding: 0.8rem 1.5rem;
-    width: 90%; /* Ajusté pour mobile */
+    width: 90%;
     max-width: 400px;
     border: 2px solid #ffb3d9;
     border-radius: 25px;
@@ -79,7 +80,6 @@ h2 {
 
 .grid {
     display: grid;
-    /* CHANGEMENT ICI : minmax(250px) au lieu de 300px pour éviter les bugs sur mobile */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
     width: 90%;
@@ -146,26 +146,7 @@ footer {
     font-weight: bold;
 }
 
-/* --- RESPONSIVE MOBILE --- */
-@media (max-width: 600px) {
-    header {
-        padding: 2rem 1rem;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.5rem;
-    }
-    .grid {
-        grid-template-columns: 1fr; /* Sur très petit écran, 1 seule colonne */
-        gap: 2rem; /* Plus d'espace car l'icône chat dépasse un peu */
-    }
-    .card {
-        padding: 1.2rem;
-    }
-}
-
+/* --- LIEN VERS LE QUIZ SUR INDEX.HTML --- */
 .quiz-link {
     display: inline-block;
     margin-bottom: 1rem;
@@ -180,4 +161,101 @@ footer {
 .quiz-link:hover {
     transform: scale(1.1);
     background: #ff1a75;
+}
+
+/* --- STYLE SPÉCIFIQUE AU QUIZ --- */
+.quiz-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    margin: 2rem 0; /* Ajout d'une marge haut/bas */
+    position: relative; /* Pour positionner l'icône chat */
+    border: 3px solid #ffe6f2;
+}
+
+.quiz-container .cat-icon {
+    font-size: 3.5rem; /* Plus gros pour le quiz */
+    top: -25px;
+    right: -25px;
+}
+
+.question-word {
+    font-size: 3rem; /* Très gros mot à traduire */
+    color: #ff4d94;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes pour les réponses */
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.option-btn {
+    background: #fff0f5;
+    border: 2px solid #ffb3d9;
+    padding: 1.2rem;
+    border-radius: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%; /* S'adapte à sa cellule de grille */
+}
+
+.option-btn:hover {
+    background: #ffb3d9;
+    color: white;
+    transform: scale(1.05);
+}
+
+.score-board {
+    margin-top: 2.5rem;
+    font-weight: bold;
+    color: #ff3385;
+    font-size: 1.3rem;
+    background: #fff0f5;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.feedback {
+    height: 2.5rem;
+    margin-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 600px) {
+    header {
+        padding: 2rem 1rem;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .card {
+        padding: 1.2rem;
+    }
+    
+    /* Adaptations spécifiques au quiz pour mobile */
+    .question-word {
+        font-size: 2.2rem;
+    }
+    .options-grid {
+        grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+    }
 }
